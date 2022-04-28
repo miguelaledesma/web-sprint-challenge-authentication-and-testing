@@ -23,7 +23,7 @@ test('environment', () => {
 test('responds with error when no password', async () => {
 
     const res = await request(server).post('/api/auth/register').send({
-      username: 'sakura', 
+      username: 'helloooo', 
       password: 'hellloooo',
 })
     expect(res.body).toMatchObject({})
