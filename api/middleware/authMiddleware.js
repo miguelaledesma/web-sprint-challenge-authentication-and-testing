@@ -1,49 +1,39 @@
 const Users = require('../users/users-model')
 
-const checkPayload = (req, res, next) => {
-try {
+
+const checkUserNameUnique = async (req, res, next) => {
+  const { username } = req.body
+  const user = await Users.getByUserName(username)
+
+  if (user) {
+    next({ status: 401, message: 'username taken'})
+  } else {
+    next()
+  }
+}
+
+const checkUserNameExists = async (req, res, next) => {
+  const { username } = req.body
+  const user = await Users.getByUserName(username)
+  if (user) {
+    req.user = user
+    next()
+  } else {
+    next({ status: 401, message: 'invalid credentials'})
+  }
+}
+
+const checkUserBody = (req, res, next) => {
   const { username, password } = req.body
-    if (!username || !password) {
-        res.status(404).json({message: 'A username and password is required'})
-} else {
-    req.username = username
-    req.password = password
+  if (!username || !password) {
+    next({ status: 400, message: 'username and password required'})
+  } else {
     next()
+  }
 }
-} catch (err) {
-     next(err)
-}}
 
-
-const isUsernameUnique = async (req, res, next) => {
-  try {
-    const existingUsername = await Users.findByUsername(req.body.username)
-    if (!existingUsername.length) {
-     next()
-} else {
-     next({ status: 401, message: 'this username is already taken' })
+module.exports = {
+  checkUserNameUnique,
+  checkUserBody,
+  checkUserNameExists
 }
-} catch (err) {
-     next(err)
-}}
-
-
-const validateLogin = async (req, res, next) => {
-try {
-const user = await Users.findByUsername(req.body.username)
-    const password = await Users.validatePassword(req.body.password)
-    if (!user || !password) {
-    next({ status: 400, message: 'invalid credentials' })
-} else {
-    next()
-}
-} catch (err) {
-     next(err)
-}}
-
-module.exports = { 
-    checkPayload,
-    isUsernameUnique,
-    validateLogin,
-    
-};
