@@ -3,7 +3,7 @@ const {JWT_SECRET} = require('../../config/secrets')
 
 
 
-
+// here i am creating the restricted middleware, you can only enter if you have a token 
 module.exports = (req, res, next) => {
   const token = req.headers.authorization
  if (token === undefined) {

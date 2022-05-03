@@ -5,7 +5,7 @@ const {JWT_SECRET } = require('../../config/secrets')
 const Users = require('../users/users-model')
 const { checkUserNameUnique, checkUserNameExists, checkUserBody }  = require('../middleware/authMiddleware')
 
-
+//this post request creates a new user, upon creation of a new user the password is hashed 
 router.post('/register', checkUserBody, checkUserNameUnique, async (req, res, next) => {
   const { username, password } = req.body
   const hash = bcrypt.hashSync(password, 8) //DO NOT EXCEED 2^8 ROUNDS OF HASHING!
@@ -46,7 +46,7 @@ router.post('/register', checkUserBody, checkUserNameUnique, async (req, res, ne
 
 
   
-
+// upon login, this post request generates a new JWT token that expires in one day. If the credentials are valid that you can login successfully. otherwise you will not be able to log in. 
 router.post('/login', checkUserBody, checkUserNameExists, (req, res, next) => {
   const user = req.user
   const { password } = req.body
