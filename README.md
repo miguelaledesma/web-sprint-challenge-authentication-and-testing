@@ -1,28 +1,23 @@
-# Authentication and Testing Sprint Challenge
+# Authentication and Testing Project for BloomTech
 
-**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
+This challenge allowed me to practice the concepts and techniques learned over the Backend Development week 3 sprint. This sprint explored **Authentication and Testing**. During this sprint, I studied **authentication, JSON web tokens, unit testing, and backend testing**. In your challenge, I demonstrated my mastery of these skills by creating **a dad jokes app**.
 
-This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **Authentication and Testing**. During this sprint, you studied **authentication, JSON web tokens, unit testing, and backend testing**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a dad jokes app**.
+This was an individual assessment. All work was done on my own. The project was submitted to Codegrade for automated review. 
 
-This is an individual assessment. All work must be your own. All projects will be submitted to Codegrade for automated review. You will also be given feedback by code reviewers on Monday following the challenge submission. For more information on the review process [click here.](https://www.notion.so/bloomtech/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
-
-You are not allowed to collaborate during the sprint challenge.
 
 ## Project Setup
 
-- [ ] Run `npm install` to install your dependencies.
-- [ ] Build your database executing `npm run migrate`.
-- [ ] Run tests locally executing `npm test`.
+- [x] Run `npm install` to install your dependencies.
+- [x] Build your database executing `npm run migrate`.
+- [x] Run tests locally executing `npm test`.
 
-## Project Instructions
-
-Dad jokes are all the rage these days! In this challenge, you will build a real wise-guy application.
+## Project Functionality
 
 Users must be able to call the `[POST] /api/auth/register` endpoint to create a new account, and the `[POST] /api/auth/login` endpoint to get a token.
 
-We also need to make sure nobody without the token can call `[GET] /api/jokes` and gain access to our dad jokes.
+Anybody without the token can call `[GET] /api/jokes` and gain access to our dad jokes.
 
-We will hash the user's password using `bcryptjs`, and use JSON Web Tokens and the `jsonwebtoken` library.
+User's password is hashed using `bcryptjs`, and use JSON Web Tokens and the `jsonwebtoken` library.
 
 ### MVP
 
