@@ -1,6 +1,6 @@
 # Authentication and Testing Project for BloomTech
 
-This challenge allowed me to practice the concepts and techniques learned over the Backend Development week 3 sprint. This sprint explored **Authentication and Testing**. During this sprint, I studied **authentication, JSON web tokens, unit testing, and backend testing**. In your challenge, I demonstrated my mastery of these skills by creating **a dad jokes app**.
+This challenge allowed me to practice the concepts and techniques learned over the Backend Development week 3 sprint. This sprint explored **Authentication and Testing**. During this sprint, I studied **authentication, JSON web tokens, unit testing, and backend testing**. In this challenge, I demonstrated my mastery of these skills by creating **a dad jokes app**.
 
 This was an individual assessment. All work was done on my own. The project was submitted to Codegrade for automated review. 
 
